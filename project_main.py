@@ -1,7 +1,7 @@
 import pygame, requests, os, sys
 # Собираем параметры для запроса к StaticMapsAPI:
 coords = '45.666,43.1123'
-spn = '0,005'
+spn = '0.5,0.05'
 map_params = {
     "ll": coords,
     "spn": spn,
@@ -11,6 +11,7 @@ map_params = {
 map_api_server = "http://static-maps.yandex.ru/1.x/"
 # ... и выполняем запрос
 response = requests.get(map_api_server, params=map_params)
+print(response.url)
 # Запишем полученное изображение в файл.
 map_file = "map.png"
 try:
